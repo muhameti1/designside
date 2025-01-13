@@ -1,8 +1,7 @@
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
-
 [build]
-  publish = "public"
+publish = "public"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
