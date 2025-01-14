@@ -2,7 +2,6 @@
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 import Link from "next/link";
-import { useEffect } from "react";
 import useMenuToggleEffect from "./useMenuToggleEffect";
 
 gsap.registerPlugin(CustomEase);
