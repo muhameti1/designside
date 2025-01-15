@@ -4,7 +4,7 @@ import { CustomEase } from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
-const useMenuToggleEffect = () => {
+const useMenuToggleEffect = (): void => {
   useEffect(() => {
     // Define the custom ease
     CustomEase.create(
@@ -12,16 +12,21 @@ const useMenuToggleEffect = () => {
       "M0,0 C0.354,0 0.464,0.133 0.498,0.505 0.532,0.872 0.651,1 1,1"
     );
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".menu");
-    const headerTitle = document.querySelector(".header h1");
-    const links = document.querySelectorAll(".links .link");
-    const socialLinks = document.querySelectorAll(".socials .sub-col p");
-    const videoWrapper = document.querySelector(".video-wrapper");
-    const headerTitleSpans = document.querySelectorAll(".header h1 span");
+    const menuToggle = document.querySelector<HTMLDivElement>(".menu-toggle");
+    const menu = document.querySelector<HTMLDivElement>(".menu");
+    const headerTitle =
+      document.querySelector<HTMLHeadingElement>(".header h1");
+    const links = document.querySelectorAll<HTMLDivElement>(".links .link");
+    const socialLinks = document.querySelectorAll<HTMLParagraphElement>(
+      ".socials .sub-col p"
+    );
+    const videoWrapper =
+      document.querySelector<HTMLDivElement>(".video-wrapper");
+    const headerTitleSpans =
+      document.querySelectorAll<HTMLSpanElement>(".header h1 span");
 
     // Split text into spans
-    const splitTextIntoSpans = (element) => {
+    const splitTextIntoSpans = (element: HTMLElement | null): void => {
       if (element) {
         const text = element.innerText;
         element.innerHTML = text
@@ -34,11 +39,11 @@ const useMenuToggleEffect = () => {
 
     let isAnimating = false;
 
-    const openMenu = () => {
+    const openMenu = (): void => {
       if (isAnimating) return;
       isAnimating = true;
 
-      menuToggle.classList.replace("closed", "opened");
+      menuToggle?.classList.replace("closed", "opened");
 
       gsap
         .timeline({
@@ -60,11 +65,11 @@ const useMenuToggleEffect = () => {
         );
     };
 
-    const closeMenu = () => {
+    const closeMenu = (): void => {
       if (isAnimating) return;
       isAnimating = true;
 
-      menuToggle.classList.replace("opened", "closed");
+      menuToggle?.classList.replace("opened", "closed");
 
       gsap
         .timeline({
@@ -85,8 +90,8 @@ const useMenuToggleEffect = () => {
         .to(menu, { clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)" });
     };
 
-    const toggleMenu = () => {
-      if (menuToggle.classList.contains("closed")) {
+    const toggleMenu = (): void => {
+      if (menuToggle?.classList.contains("closed")) {
         openMenu();
       } else {
         closeMenu();
