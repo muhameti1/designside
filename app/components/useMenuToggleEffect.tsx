@@ -48,7 +48,9 @@ const useMenuToggleEffect = (): void => {
       gsap
         .timeline({
           defaults: { duration: 1.5, ease: "hop" },
-          onComplete: () => (isAnimating = false),
+          onComplete: () => {
+            isAnimating = false;
+          },
         })
         .to(menu, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" })
         .to(links, { y: 0, opacity: 1, stagger: 0.1 }, "-=0.8")
