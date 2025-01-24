@@ -1,13 +1,13 @@
-import Navigation from "@/components/ui/navigation";
-import { Button } from "@/components/ui/button";
+import Navigation from "../../ui/navigation";
+import { Button } from "../../ui/button";
 import {
   Navbar as NavbarComponent,
   NavbarLeft,
   NavbarRight,
-} from "@/components/ui/navbar";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+} from "../../ui/navbar";
+import { Sheet, SheetContent, SheetTrigger } from "../../ui/sheet";
 import { Menu } from "lucide-react";
-import LaunchUI from "@/components/logos/launch-ui";
+import LaunchUI from "../../logos/launch-ui";
 
 export default function Navbar() {
   return (
@@ -16,7 +16,10 @@ export default function Navbar() {
       <div className="relative mx-auto max-w-container">
         <NavbarComponent>
           <NavbarLeft>
-            <a href="/" className="flex items-center gap-2 text-xl font-bold">
+            <a
+              href="/"
+              className="flex items-center gap-2 text-xl font-bold"
+            >
               <LaunchUI />
               Launch UI
             </a>
